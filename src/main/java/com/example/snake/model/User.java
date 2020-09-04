@@ -1,31 +1,33 @@
 package com.example.snake.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "username")
     private String username;
-    private int currentScore;
+
+    @Column(name = "highscore")
     private int highScore;
 
     public User() {
     }
 
-    public User(Long id, String username, int currentScore, int highScore) {
+    public User(Long id, String username, int highScore) {
         this.id = id;
         this.username = username;
-        this.currentScore = currentScore;
         this.highScore = highScore;
     }
 
-    public User(String username, int currentScore, int highScore) {
-        this.id = null;
+    public User(String username, int highScore) {
         this.username = username;
-        this.currentScore = currentScore;
         this.highScore = highScore;
     }
 }
