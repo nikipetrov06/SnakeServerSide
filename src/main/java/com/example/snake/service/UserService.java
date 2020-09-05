@@ -19,8 +19,19 @@ public class UserService {
     public User getUser(String username) {
         User user = userRepository.findByUsername(username).orElse(null);
         if (user == null) {
+
             User s = new User(username, 0);
             user = userRepository.save(s);
+        }
+        return user;
+    }
+
+    public User updateUser(Long id, int highscore) {
+        User user = userRepository.findById(id).orElse(null);
+
+        if (user != null) {
+            user.setHighScore(highscore);
+            userRepository.save(user);
         }
         return user;
     }

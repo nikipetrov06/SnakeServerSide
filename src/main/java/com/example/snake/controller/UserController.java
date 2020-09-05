@@ -3,10 +3,7 @@ package com.example.snake.controller;
 import com.example.snake.model.User;
 import com.example.snake.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -21,6 +18,11 @@ public class UserController {
     @GetMapping("/login")
     public User getUser(@RequestParam String username) {
         return userService.getUser(username);
+    }
+
+    @PutMapping("/update")
+    public User updateUser(@RequestParam Long id, @RequestParam int highscore) {
+        return userService.updateUser(id, highscore);
     }
 
 }
