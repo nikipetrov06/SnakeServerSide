@@ -1,8 +1,7 @@
 package com.example.snake.service;
 
-import com.example.snake.model.User;
+import com.example.snake.entity.User;
 import com.example.snake.repository.UserRepository;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

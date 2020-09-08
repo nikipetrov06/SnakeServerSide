@@ -1,6 +1,6 @@
 package com.example.snake.controller;
 
-import com.example.snake.model.User;
+import com.example.snake.entity.User;
 import com.example.snake.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

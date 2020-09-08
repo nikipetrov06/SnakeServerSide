@@ -1,6 +1,6 @@
 package com.example.snake.repository;
 
-import com.example.snake.model.User;
+import com.example.snake.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

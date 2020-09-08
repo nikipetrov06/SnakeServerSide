@@ -1,4 +1,4 @@
-package com.example.snake.model;
+package com.example.snake.entity;
 
 import javax.persistence.*;
 
@@ -16,6 +16,10 @@ public class User {
 
     @Column(name = "highscore")
     private int highScore;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "lobby_id", referencedColumnName = "id")
+    private Lobby lobby;
 
     public User() {
     }
@@ -53,5 +57,13 @@ public class User {
 
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+    }
+
+    public Lobby getLobby() {
+        return lobby;
+    }
+
+    public void setLobby(Lobby lobby) {
+        this.lobby = lobby;
     }
 }
