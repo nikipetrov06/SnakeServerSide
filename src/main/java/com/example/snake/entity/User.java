@@ -17,10 +17,6 @@ public class User {
     @Column(name = "highscore")
     private int highScore;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lobby_id", referencedColumnName = "id")
-    private Lobby lobby;
-
     public User() {
     }
 
@@ -59,11 +55,4 @@ public class User {
         this.highScore = highScore;
     }
 
-    public Lobby getLobby() {
-        return lobby;
-    }
-
-    public void setLobby(Lobby lobby) {
-        this.lobby = lobby;
-    }
 }

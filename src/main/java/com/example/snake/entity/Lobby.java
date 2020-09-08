@@ -1,41 +1,31 @@
 package com.example.snake.entity;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "lobby")
+import java.util.ArrayList;
+import java.util.List;
+
 public class Lobby {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    private int index;
 
-    @Column(name = "free_places")
     private int freePlaces;
 
-    @OneToOne(mappedBy = "lobby")
-    private User user;
+    private List<User> users;
 
     public Lobby() {
         this.freePlaces = 1;
+        this.users = new ArrayList<>(2);
     }
 
-    public Lobby(User user) {
+    public Lobby(int index) {
         super();
-        this.id = null;
-        this.user = user;
+        this.index = index;
     }
 
-    public Lobby(Long id, User user) {
-        super();
-        this.id = id;
-        this.user = user;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public Long getId() {
-        return id;
-    }
     public int getFreePlaces() {
         return freePlaces;
     }
@@ -44,11 +34,7 @@ public class Lobby {
         this.freePlaces = freePlaces;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setIndex(int index) {
+        this.index = index;
     }
 }
